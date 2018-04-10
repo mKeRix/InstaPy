@@ -498,7 +498,7 @@ def check_link(browser, link, dont_like, ignore_if_contains, ignore_users, usern
         sleep(1)
 
         try:
-            format_number(browser.find_element_by_xpath("//li[2]/a/span[contains(@class, '_fd86t')]").text)
+            num_followers = format_number(browser.find_element_by_xpath("//li[2]/a/span[contains(@class, '_fd86t')]").text)
         except WebDriverException:
             try:
                 browser.execute_script("location.reload()")
