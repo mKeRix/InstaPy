@@ -8,7 +8,7 @@ def log_follower_num(browser, username, logfolder):
     a seperate file"""
     browser.get('https://www.instagram.com/' + username)
 
-    followed_by = 100
+    followed_by = format_number(browser.find_element_by_xpath("//li[2]/a/span[contains(@class, '_fd86t')]").text)
 
     with open('{}followerNum.txt'.format(logfolder), 'a') as numFile:
         numFile.write(
