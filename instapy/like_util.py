@@ -497,9 +497,7 @@ def check_link(browser, link, dont_like, ignore_if_contains, ignore_users, usern
         sleep(1)
 
         try:
-            num_followers = browser.execute_script(
-                "return window._sharedData.entry_data."
-                "ProfilePage[0].graphql.user.edge_followed_by.count")
+            format_number(browser.find_element_by_xpath("//li[2]/a/span[contains(@class, '_fd86t')]").text)
         except WebDriverException:
             try:
                 browser.execute_script("location.reload()")
