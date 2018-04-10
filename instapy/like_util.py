@@ -11,6 +11,7 @@ from .time_util import sleep
 from .util import update_activity
 from .util import add_user_to_blacklist
 from .util import click_element
+from .util import format_number
 
 
 def get_links_from_feed(browser, amount, num_of_search, logger):
