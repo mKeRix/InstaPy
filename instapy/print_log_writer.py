@@ -1,5 +1,6 @@
 """Module only used to log the number of followers to a file"""
 from datetime import datetime
+from .util import format_number
 
 
 def log_follower_num(browser, username, logfolder):
@@ -7,9 +8,7 @@ def log_follower_num(browser, username, logfolder):
     a seperate file"""
     browser.get('https://www.instagram.com/' + username)
 
-    followed_by = browser.execute_script(
-        "return window._sharedData.""entry_data.ProfilePage[0]."
-        "graphql.user.edge_followed_by.count")
+    followed_by = format_number(browser.find_element_by_xpath("//li[2]/a/span[contains(@class, '_fd86t')]").text)
 
     with open('{}followerNum.txt'.format(logfolder), 'a') as numFile:
         numFile.write(
